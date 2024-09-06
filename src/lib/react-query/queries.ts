@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   useQuery,
   useMutation,
@@ -69,8 +70,11 @@ export const useGetPosts = () => {
       const lastId = lastPage.documents[lastPage.documents.length - 1].$id;
       return lastId;
     },
+    // Add the initialPageParam to set the starting page
+    initialPageParam: 1, // or whatever starting point you need
   });
 };
+
 
 export const useSearchPosts = (searchTerm: string) => {
   return useQuery({

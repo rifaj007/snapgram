@@ -184,8 +184,6 @@ export function getFilePreview(fileId: string) {
       fileId,
       2000,
       2000,
-      "top",
-      100
     );
 
     if (!fileUrl) throw Error;
@@ -225,6 +223,7 @@ export async function searchPosts(searchTerm: string) {
 }
 
 export async function getInfinitePosts({ pageParam }: { pageParam: number }) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const queries: any[] = [Query.orderDesc("$updatedAt"), Query.limit(9)];
 
   if (pageParam) {
@@ -449,6 +448,7 @@ export async function getRecentPosts() {
 
 // ============================== GET USERS
 export async function getUsers(limit?: number) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const queries: any[] = [Query.orderDesc("$createdAt")];
 
   if (limit) {
